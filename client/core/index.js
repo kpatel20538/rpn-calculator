@@ -2,7 +2,7 @@ const WHITESPACE = /\s+/;
 
 const OPERATOR_ARTIY = 2;
 
-const operators = {
+const OPERATORS = {
   "+": (a, b) => a + b,
   "-": (a, b) => a - b,
   "*": (a, b) => a * b,
@@ -21,7 +21,7 @@ const parseToken = (token) => {
     return { type: "number", value };
   }
 
-  if (token in operators) {
+  if (token in OPERATORS) {
     return { type: "operator", kind: token };
   }
 
@@ -39,7 +39,7 @@ const resolveOperationOpcode = (stack, opcode) => {
     throw new Error(`Not enough arguments for operator: ${opcode.kind}`);
   }
 
-  const operation = operators[opcode.kind];
+  const operation = OPERATORS[opcode.kind];
   const opcodes = stack.slice(stack.length - OPERATOR_ARTIY);
   const args = opcodes.map((arg) => arg.value);
   const result = operation(...args);
