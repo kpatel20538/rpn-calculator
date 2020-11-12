@@ -61,9 +61,13 @@ const pushOpcodeToStack = (stack, opcode) => {
 };
 
 export const reducer = (stack, action) => {
-  const opcodes = parseOpcodes(action.text);
-  const nextStack = opcodes.reduce(pushOpcodeToStack, stack);
-  return nextStack;
+  if (action.type === "input") {
+    const opcodes = parseOpcodes(action.text);
+    const nextStack = opcodes.reduce(pushOpcodeToStack, stack);
+    return nextStack;
+  } else {
+    return stack;
+  }
 };
 
 export const getInitialState = () => [];
