@@ -34,7 +34,7 @@ const parseOpcodes = (text) => {
   return opcodes;
 };
 
-const reduceStackByOperator = (stack, opcode) => {
+const resolveOperationOpcode = (stack, opcode) => {
   if (stack.length < OPERATOR_ARTIY) {
     throw new Error(`Not enough arguments for operator: ${opcode.kind}`);
   }
@@ -55,7 +55,7 @@ const reduceStackByOperator = (stack, opcode) => {
 const pushOpcodeToStack = (stack, opcode) => {
   const nextStack =
     opcode.type === "operator"
-      ? reduceStackByOperator(stack, opcode)
+      ? resolveOperationOpcode(stack, opcode)
       : [...stack, opcode];
   return nextStack;
 };
