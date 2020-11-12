@@ -52,7 +52,7 @@ const reduceStackByOperator = (stack, opcode) => {
   return nextStack;
 };
 
-const reduceStackByOpcode = (stack, opcode) => {
+const pushOpcodeToStack = (stack, opcode) => {
   const nextStack =
     opcode.type === "operator"
       ? reduceStackByOperator(stack, opcode)
@@ -62,7 +62,7 @@ const reduceStackByOpcode = (stack, opcode) => {
 
 export const reducer = (stack, action) => {
   const opcodes = parseOpcodes(action.text);
-  const nextStack = opcodes.reduce(reduceStackByOpcode, stack);
+  const nextStack = opcodes.reduce(pushOpcodeToStack, stack);
   return nextStack;
 };
 
