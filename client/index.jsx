@@ -1,7 +1,9 @@
 import React, { useReducer, useState } from "react";
 import ReactDOM from "react-dom";
 import "bulma/css/bulma.css";
+
 import { getInitialState, reducer } from "./core";
+import ErrorLog from "./component/ErrorLog";
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, getInitialState());
@@ -36,8 +38,15 @@ const App = () => {
             </button>
           </div>
         </div>
-        <div className="box">
-          <pre>{stack.map((opcode) => opcode.value).join(", ")}</pre>
+        <div className="columns">
+          <div className="column is-two-thirds">
+            <div className="box">
+              <pre>{stack.map((opcode) => opcode.value).join(", ")}</pre>
+            </div>
+          </div>
+          <div className="column is-one-thirds">
+            <ErrorLog errors={state.errors} dispatch={dispatch} />
+          </div>
         </div>
       </div>
     </div>
