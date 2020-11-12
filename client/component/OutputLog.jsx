@@ -14,7 +14,6 @@ const renderCalculatorStack = (state) => {
   return (
     <div>
       {remainingOpcodes
-        .slice(0, state.length - 1)
         .map((opcode) => `${opcode.value}, `)
         .join("")}
       <strong>{topOpcode.value}</strong>
