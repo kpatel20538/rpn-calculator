@@ -16,7 +16,7 @@ const OPERATORS = {
 };
 
 const parseToken = (token) => {
-  const value = parseFloat(token);
+  const value = Number(token);
   if (!Number.isNaN(value)) {
     return { type: "number", value };
   }

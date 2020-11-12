@@ -84,4 +84,14 @@ describe("reverse polish calculator", () => {
 
     expect(() => reducer(state, action)).toThrow();
   });
+
+  describe("regression test", () => {
+    test("unable to parse unknown values that are prefix with a nubmer", () => {
+      const state = getInitialState();
+      const action = { type: "input", text: "3p" };
+  
+      expect(() => reducer(state, action)).toThrow();
+    });
+  
+  })
 });
