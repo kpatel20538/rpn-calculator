@@ -24,12 +24,11 @@ const renderCalculatorStack = (state) => {
 
 const OutputLog = ({ history }) => {
   return (
-    <pre className="box">
+    <pre className="column box rpn-logging-box">
       {history.map(({ state, action }) => (
         <div className="block">
           {renderUserInput(action)}
           {renderCalculatorStack(state)}
-          <hr />
         </div>
       ))}
     </pre>

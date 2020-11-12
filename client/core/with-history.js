@@ -3,7 +3,7 @@ export const withHistory = (reducer) => (state, action) => {
   const nextHistoryEntry = { state: nextState, action };
   return {
     current: nextState,
-    history: [...state.history, nextHistoryEntry],
+    history: [nextHistoryEntry, ...state.history],
   };
 };
 

@@ -10,16 +10,16 @@ const App = () => {
   return (
     <div className="container">
       <div className="section">
-        <InputBar dispatch={dispatch} />
-        <div className="columns">
-          <div className="column">
+        <div className="block">
+          <InputBar dispatch={dispatch} />
+        </div>
+        <div className="block">
+          <div className="columns">
             <OutputLog history={state.value.history} />
-          </div>
-          {state.errors.length > 0 && (
-            <div className="column is-one-third">
+            {state.errors.length > 0 && (
               <ErrorLog errors={state.errors} dispatch={dispatch} />
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 const ErrorLog = ({ errors, dispatch }) => {
   return (
-    <div className="box">
+    <div className="column is-one-third box rpn-logging-box">
       {errors.map(({ name, message }, idx) => (
         <div className="notification is-warning">
           <button

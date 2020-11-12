@@ -15,8 +15,8 @@ describe("history middleware", () => {
     expect(state).toStrictEqual({
       current: "c",
       history: [
-        { state: "b", action: { type: "set", value: "b" } },
         { state: "c", action: { type: "set", value: "c" } },
+        { state: "b", action: { type: "set", value: "b" } },
       ],
     });
   });
