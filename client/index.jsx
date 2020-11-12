@@ -7,6 +7,8 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, getInitialState());
   const [input, setInput] = useState("");
 
+  const stack = state.value;
+
   return (
     <div className="container">
       <div className="section">
@@ -35,7 +37,7 @@ const App = () => {
           </div>
         </div>
         <div className="box">
-          <pre>{state.map((opcode) => opcode.value).join(", ")}</pre>
+          <pre>{stack.map((opcode) => opcode.value).join(", ")}</pre>
         </div>
       </div>
     </div>
