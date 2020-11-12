@@ -2,11 +2,10 @@ import React, { useReducer } from "react";
 import { getInitialState, reducer } from "../core";
 import ErrorLog from "./ErrorLog";
 import InputBar from "./InputBar";
+import OutputLog from "./OutputLog";
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, getInitialState());
-
-  const stack = state.value.current;
 
   return (
     <div className="container">
@@ -14,9 +13,7 @@ const App = () => {
         <InputBar dispatch={dispatch} />
         <div className="columns">
           <div className="column">
-            <div className="box">
-              <pre>{stack.map((opcode) => opcode.value).join(", ")}</pre>
-            </div>
+            <OutputLog history={state.value.history} />
           </div>
           {state.errors.length > 0 && (
             <div className="column is-one-third">
