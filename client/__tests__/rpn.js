@@ -1,4 +1,4 @@
-import { reducer, getInitialState } from "../core";
+import { reducer, getInitialState } from "../core/rpn";
 
 const peek = (stack) => stack[stack.length - 1].value;
 
