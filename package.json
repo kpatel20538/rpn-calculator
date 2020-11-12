@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": "true",
   "scripts": {
-    "start": "http-server dist/ --port 5000",
+    "start": "http-server dist/ --port $PORT",
     "build": "webpack",
     "start:dev": "webpack serve",
     "test": "jest"
