@@ -16,9 +16,7 @@ const App = () => {
         <div className="block">
           <div className="columns">
             <OutputLog history={state.value.history} />
-            {state.errors.length > 0 && (
-              <ErrorLog errors={state.errors} dispatch={dispatch} />
-            )}
+            <ErrorLog errors={state.errors} dispatch={dispatch} />
           </div>
         </div>
       </div>
