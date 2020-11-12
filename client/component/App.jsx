@@ -13,14 +13,16 @@ const App = () => {
       <div className="section">
         <InputBar dispatch={dispatch} />
         <div className="columns">
-          <div className="column is-two-thirds">
+          <div className="column">
             <div className="box">
               <pre>{stack.map((opcode) => opcode.value).join(", ")}</pre>
             </div>
           </div>
-          <div className="column is-one-thirds">
-            <ErrorLog errors={state.errors} dispatch={dispatch} />
-          </div>
+          {state.errors.length > 0 && (
+            <div className="column is-one-third">
+              <ErrorLog errors={state.errors} dispatch={dispatch} />
+            </div>
+          )}
         </div>
       </div>
     </div>
