@@ -63,4 +63,25 @@ describe("reverse polish calculator", () => {
     state = reducer(state, { type: "input", text: "/" });
     expect(peek(state)).toBeCloseTo(0.625);
   });
+
+  test("unable to divide by 0", () => {
+    const state = getInitialState();
+    const action = { type: "input", text: "1 0 /" };
+
+    expect(() => reducer(state, action)).toThrow();
+  });
+
+  test("unable to resolve operator when not enough values present", () => {
+    const state = getInitialState();
+    const action = { type: "input", text: "1 +" };
+
+    expect(() => reducer(state, action)).toThrow();
+  });
+
+  test("unable to parse unknown values", () => {
+    const state = getInitialState();
+    const action = { type: "input", text: "p" };
+
+    expect(() => reducer(state, action)).toThrow();
+  });
 });
