@@ -6,7 +6,7 @@ import InputBar from "./InputBar";
 const App = () => {
   const [state, dispatch] = useReducer(reducer, getInitialState());
 
-  const stack = state.value;
+  const stack = state.value.current;
 
   return (
     <div className="container">
