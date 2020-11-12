@@ -53,11 +53,11 @@ const resolveOperationOpcode = (stack, opcode) => {
 };
 
 const pushOpcodeToStack = (stack, opcode) => {
-  const nextStack =
-    opcode.type === "operator"
-      ? resolveOperationOpcode(stack, opcode)
-      : [...stack, opcode];
-  return nextStack;
+  if (opcode.type === "operator") {
+    return resolveOperationOpcode(stack, opcode);
+  } else {
+    return [...stack, opcode];
+  }
 };
 
 export const reducer = (stack, action) => {
